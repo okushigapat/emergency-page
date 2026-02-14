@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backcountry Emergency - 位置情報共有</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 3px solid #dc3545;
+        }
+        
+        .header h1 {
+            color: #dc3545;
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .header p {
+            color: #dc3545;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        /* フォームセクション */
+        .form-section {
+            margin-bottom: 40px;
+            background-color: #f8f9fa;
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .form-section h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .form-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .form-container iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+        
+        /* ボタンセクション */
+        .button-section {
+            margin-bottom: 40px;
+        }
+        
+        .button-section h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .emergency-button {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+            padding: 25px 20px;
+            font-size: 22px;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .emergency-button:active {
+            transform: scale(0.98);
+        }
+        
+        .line-button {
+            background-color: #06C755;
+            color: #ffffff;
+        }
+        
+        .line-button:hover {
+            box-shadow: 0 6px 16px rgba(6, 199, 85, 0.4);
+        }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: #ffffff;
+        }
+        
+        .whatsapp-button:hover {
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .instructions h2 {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .instruction-section {
+            margin-bottom: 25px;
+        }
+        
+        .instruction-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .instruction-section h3 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #495057;
+        }
+        
+        .instruction-section ol {
+            padding-left: 25px;
+        }
+        
+        .instruction-section li {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 2px solid #dee2e6;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .form-section h2,
+            .button-section h2 {
+                font-size: 20px;
+            }
+            
+            .emergency-button {
+                font-size: 20px;
+                padding: 22px 18px;
+            }
+            
+            .instruction-section li {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <div class="header">
+            <h1>BACKCOUNTRY EMERGENCY</h1>
+            <p>Share your location immediately.</p>
+        </div>
+        
+        <!-- Googleフォームセクション -->
+        <div class="form-section">
+            <h2>📋 救助要請フォーム / Rescue Request Form</h2>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSffzCcv9d3W72KMyDMFv7DkszX40_1y5hthJ0K9L5J0sh1FHw/viewform?embedded=true" width="640" height="1464" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            </div>
+        </div>
+        
+        <!-- 緊急連絡ボタンセクション -->
+        <div class="button-section">
+            <h2>📍 位置情報を送信 / Send Your Location</h2>
+            <div class="button-container">
+                <!-- 
+                ★★★ LINE招待リンクの設定箇所 ★★★
+                下記のhref="YOUR_LINE_GROUP_LINK_HERE"の部分を
+                実際のLINEグループ招待リンクに置き換えてください
+                -->
+                <a href="https://line.me/ti/g/QV-4JNjQgk" class="emergency-button line-button">
+                    🇯🇵 LINEで救助要請
+                </a>
+                
+                <!-- 
+                ★★★ WhatsApp招待リンクの設定箇所 ★★★
+                下記のhref="YOUR_WHATSAPP_GROUP_LINK_HERE"の部分を
+                実際のWhatsAppグループ招待リンクに置き換えてください
+                -->
+                <a href="https://chat.whatsapp.com/BlOcjfCoBgmDu9hbJUUnoT?mode=gi_t" class="emergency-button whatsapp-button">
+                    🌍 Request Rescue via WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <!-- Google Maps位置共有手順 -->
+        <div class="instructions">
+            <h2>📍 位置情報の共有方法 / How to Share Location</h2>
+            
+            <div class="instruction-section">
+                <h3>日本語：</h3>
+                <ol>
+                    <li>Google Mapsを開く</li>
+                    <li>現在地を長押し</li>
+                    <li>共有をタップ</li>
+                    <li>URLをこのグループに貼る</li>
+                </ol>
+            </div>
+            
+            <div class="instruction-section">
+                <h3>English:</h3>
+                <ol>
+                    <li>Open Google Maps</li>
+                    <li>Long press your location</li>
+                    <li>Tap Share</li>
+                    <li>Paste link into chat</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- フッター -->
+        <div class="footer">
+            <p>If you are in immediate danger, call emergency services (119 Japan)</p>
+        </div>
+    </div>
+</body>
+</html>
