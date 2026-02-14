@@ -135,6 +135,15 @@
             box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
         }
         
+        .email-button {
+            background-color: #EA4335;
+            color: #ffffff;
+        }
+        
+        .email-button:hover {
+            box-shadow: 0 6px 16px rgba(234, 67, 53, 0.4);
+        }
+        
         .instructions {
             background-color: #f8f9fa;
             padding: 30px;
@@ -252,6 +261,16 @@
                 <a href="https://chat.whatsapp.com/BlOcjfCoBgmDu9hbJUUnoT?mode=gi_t" class="emergency-button whatsapp-button">
                     🌍 Request Rescue via WhatsApp
                 </a>
+                
+                <!-- 
+                ★★★ メール送信先の設定箇所 ★★★
+                下記のhref="mailto:YOUR_EMAIL_HERE"の部分を
+                実際の救助担当者のメールアドレスに置き換えてください
+                例: href="mailto:rescue@example.com"
+                -->
+                <a href="mailto:okushigapat@gmail.com?subject=緊急救助要請 EMERGENCY RESCUE REQUEST&body=私の現在地：%0D%0AMy location:%0D%0A%0D%0A[ここにGoogle MapsのURLを貼り付けてください]%0D%0A[Paste your Google Maps URL here]" class="emergency-button email-button">
+                    📧 メールで救助要請 / Email Rescue
+                </a>
             </div>
         </div>
         
@@ -265,7 +284,7 @@
                     <li>Google Mapsを開く</li>
                     <li>現在地を長押し</li>
                     <li>共有をタップ</li>
-                    <li>URLをこのグループに貼る</li>
+                    <li>URLをコピーして、上記のLINE/WhatsApp/メールに貼り付ける</li>
                 </ol>
             </div>
             
@@ -275,7 +294,7 @@
                     <li>Open Google Maps</li>
                     <li>Long press your location</li>
                     <li>Tap Share</li>
-                    <li>Paste link into chat</li>
+                    <li>Copy URL and paste into LINE/WhatsApp/Email above</li>
                 </ol>
             </div>
         </div>
